@@ -1,0 +1,3 @@
+gdm_user_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: gdmUserBundle:Default:index }
