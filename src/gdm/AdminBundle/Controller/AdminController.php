@@ -6,8 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class AdminController extends Controller
 {
-    public function indexAction($name)
+    public function indexAction()
     {
-        return $this->render('gdmAdminBundle:Default:index.html.twig', array('name' => $name));
+        return $this->render('gdmAdminBundle:reservation:index.html.twig');
     }
 }
