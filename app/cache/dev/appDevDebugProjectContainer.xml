@@ -273,16 +273,12 @@
     <parameter key="security.access.always_authenticate_before_granting">false</parameter>
     <parameter key="security.authentication.hide_user_not_found">true</parameter>
     <parameter key="security.role_hierarchy.roles" type="collection">
+      <parameter key="ROLE_USER" type="collection">
+        <parameter>ROLE_USER</parameter>
+      </parameter>
       <parameter key="ROLE_ADMIN" type="collection">
-        <parameter>ROLE_USER</parameter>
-      </parameter>
-      <parameter key="ROLE_ADMIN_AUTEUR" type="collection">
         <parameter>ROLE_ADMIN</parameter>
-      </parameter>
-      <parameter key="ROLE_SUPER_ADMIN" type="collection">
         <parameter>ROLE_USER</parameter>
-        <parameter>ROLE_ADMIN_AUTEUR</parameter>
-        <parameter>ROLE_ADMIN</parameter>
       </parameter>
     </parameter>
     <parameter key="twig.class">Twig_Environment</parameter>
@@ -1615,7 +1611,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>5920405b94864</argument>
+            <argument>59209a895bebb</argument>
           </service>
         </argument>
       </argument>
@@ -1640,16 +1636,12 @@
             <argument type="service">
               <service class="Symfony\Component\Security\Core\Role\RoleHierarchy" public="false">
                 <argument type="collection">
+                  <argument key="ROLE_USER" type="collection">
+                    <argument>ROLE_USER</argument>
+                  </argument>
                   <argument key="ROLE_ADMIN" type="collection">
-                    <argument>ROLE_USER</argument>
-                  </argument>
-                  <argument key="ROLE_ADMIN_AUTEUR" type="collection">
                     <argument>ROLE_ADMIN</argument>
-                  </argument>
-                  <argument key="ROLE_SUPER_ADMIN" type="collection">
                     <argument>ROLE_USER</argument>
-                    <argument>ROLE_ADMIN_AUTEUR</argument>
-                    <argument>ROLE_ADMIN</argument>
                   </argument>
                 </argument>
               </service>
@@ -1746,7 +1738,29 @@
                     </service>
                   </argument>
                   <argument type="collection">
-                    <argument>ROLE_ADMIN_AUTEUR</argument>
+                    <argument>ROLE_ADMIN</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/ajouter_boutique</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>ROLE_ADMIN</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/ajouter_maison</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>ROLE_ADMIN</argument>
                   </argument>
                   <argument>null</argument>
                 </call>
@@ -1944,7 +1958,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>5920405b94864</argument>
+            <argument>59209a895bebb</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -1973,7 +1987,29 @@
                     </service>
                   </argument>
                   <argument type="collection">
-                    <argument>ROLE_ADMIN_AUTEUR</argument>
+                    <argument>ROLE_ADMIN</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/ajouter_boutique</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>ROLE_ADMIN</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/ajouter_maison</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>ROLE_ADMIN</argument>
                   </argument>
                   <argument>null</argument>
                 </call>

@@ -4,6 +4,30 @@ gdmAnimal_accueil:
     requirements:
         page: \d*
 
-gdmAnimal_Ajouter:
-    path: /Ajouter
-    defaults: { _controller: gdmAdminBundle:Admin:ajouter}
+gdmAdmin_AjouterArticle:
+    path: /ajouter_article
+    defaults: { _controller: gdmAdminBundle:Admin:ajouterArticle}
+
+gdmAdmin_ajouterBoutique:
+    path: /ajouter_boutique
+    defaults: { _controller: gdmAdminBundle:Admin:ajouterBoutique }
+
+gdmAdmin_voir:
+    path: /voir/{id}
+    defaults: { _controller: gdmAdminBundle:Admin:voir }
+    requirements:
+        id: \d+
+
+gdmAdmin_ajouterMaison:
+    path: /ajouter_maison
+    defaults: { _controller: gdmAdminBundle:Admin:ajouterMaison }
+gdmAdmin_modifier:
+    path: /modifier/{id}
+    defaults: { _controller: gdmAdminBundle:Admin:modifier }
+    requirements:
+        id: \d+
+gdmAdmin_supprimer:
+    path: /supprimer/{id}
+    defaults: { _controller: gdmAdminBundle:Admin:supprimer }
+    requirements:
+        id: \d+

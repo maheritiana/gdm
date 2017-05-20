@@ -1,0 +1,37 @@
+{% extends "gdmReservationBundle::layout.html.twig" %}
+	{% block title %}
+		Accueil - {{ parent() }}
+	{% endblock %}
+	{% block gdmReservation_body %}
+		<!-- Our Portfolio -->
+		<div class="section section-white">
+			<div class="container">
+				<div class="row">
+					{% include "gdmAdminBundle:reservation:description.html.twig" %}
+					<p>
+						<a href="{{ path('gdmAdmin_accueil') }}" class="btn">
+							<i class="icon-chevron-left"></i>
+							Retour à la liste
+						</a>
+						<a href="{{ path('gdmAdmin_modifier', {'id': article.id}) }}"
+						   class="btn">
+							<i class="icon-edit"></i>
+							Modifier l'article
+						</a>
+						<a href="{{ path('gdmAdmin_supprimer', {'id': article.id}) }}"
+						   class="btn">
+							<i class="icon-trash"></i>
+							Supprimer l'article
+						</a>
+						<a href="{{ path('gdmAdmin_commentaire', {'id': article.id}) }}"
+						   class="btn">
+							<i class="icon-trash"></i>
+							commenter l'article
+						</a>
+					</p>
+
+				</div>
+			</div>
+		</div>
+		<!-- Our Portfolio -->
+	{% endblock %}

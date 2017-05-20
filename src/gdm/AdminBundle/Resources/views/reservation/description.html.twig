@@ -1,0 +1,16 @@
+{% set accueil = accueil|default(false) %}
+<h2>
+	{% if desc.image is not null %}
+		<img src="{{ asset(desc.image.webPath) }}"
+			 alt="{{ desc.image.alt }}"/>
+	{% endif %}
+	{% if accueil %}
+		<a href="{{ path('gdmAdmin_voir', {'id': desc.id} ) }}">{{
+			desc.titre }}</a>
+	{% else %}
+		{{ desc.nom }}
+	{% endif %}
+</h2>
+<div class="well">
+	{{ desc.description }}
+</div>

@@ -27,12 +27,12 @@ security:
                 key: %secret%
 
     role_hierarchy:
-        ROLE_ADMIN:    ROLE_USER
-        ROLE_ADMIN_AUTEUR:   ROLE_ADMIN
-        ROLE_SUPER_ADMIN:
-            - ROLE_USER
-            - ROLE_ADMIN_AUTEUR
+        ROLE_USER: ROLE_USER
+        ROLE_ADMIN:
             - ROLE_ADMIN
+            - ROLE_USER
     access_control:
         - { path: ^/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/ajouter, role: ROLE_ADMIN_AUTEUR }
+        - { path: ^/ajouter, role: ROLE_ADMIN }
+        - { path: ^/ajouter_boutique, role: ROLE_ADMIN }
+        - { path: ^/ajouter_maison, role: ROLE_ADMIN }

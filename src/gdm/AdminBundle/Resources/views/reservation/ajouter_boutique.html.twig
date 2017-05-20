@@ -1,0 +1,24 @@
+{% extends "gdmAdminBundle::layout.html.twig" %}
+	{% block title %}
+        Accueil - {{ parent() }}
+    {% endblock %}
+	{% block gdmReservation_body %}
+        <!-- Our Portfolio -->
+        <div class="section section-white">
+            <div class="container">
+                <h2>Ajouter un boutique</h2>
+                <form method="post" {{ form_enctype(formBoutique) }}>
+                    {{ form_widget(formBoutique) }}
+                    <input type="submit" class="btn btn-primary" />
+                </form>
+
+                <p>
+                    <a href="{{ path('gdmAdmin_voir', {'id': 1}) }}"class="btn">
+                        <i class="icon-chevron-left"></i>
+                        Retour à l'article
+                    </a>
+                </p>
+            </div>
+        </div>
+        <!-- Our Portfolio -->
+    {% endblock %}

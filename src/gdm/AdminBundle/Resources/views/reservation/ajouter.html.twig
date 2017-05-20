@@ -6,11 +6,17 @@
         <!-- Our Portfolio -->
         <div class="section section-white">
             <div class="container">
-                <div class="row">
+                <h2>Ajouter un article</h2>
+                {% include "gdmAdminBundle:reservation:formulaire.html.twig" %}
 
-
-                </div>
+                <p>
+                    <a href="{{ path('gdmAdmin_voir', {'id': 1}) }}"class="btn">
+                        <i class="icon-chevron-left"></i>
+                        Retour à l'article
+                    </a>
+                </p>
             </div>
+
         </div>
         <!-- Our Portfolio -->
     {% endblock %}

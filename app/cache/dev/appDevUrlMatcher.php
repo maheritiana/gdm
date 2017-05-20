@@ -138,9 +138,37 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'gdm\\AdminBundle\\Controller\\AdminController::indexAction',  'page' => 1,  '_route' => 'gdmAnimal_accueil',);
         }
 
-        // gdmAnimal_Ajouter
-        if ($pathinfo === '/Ajouter') {
-            return array (  '_controller' => 'gdm\\AdminBundle\\Controller\\AdminController::ajouterAction',  '_route' => 'gdmAnimal_Ajouter',);
+        if (0 === strpos($pathinfo, '/ajouter_')) {
+            // gdmAdmin_AjouterArticle
+            if ($pathinfo === '/ajouter_article') {
+                return array (  '_controller' => 'gdm\\AdminBundle\\Controller\\AdminController::ajouterArticleAction',  '_route' => 'gdmAdmin_AjouterArticle',);
+            }
+
+            // gdmAdmin_ajouterBoutique
+            if ($pathinfo === '/ajouter_boutique') {
+                return array (  '_controller' => 'gdm\\AdminBundle\\Controller\\AdminController::ajouterBoutiqueAction',  '_route' => 'gdmAdmin_ajouterBoutique',);
+            }
+
+        }
+
+        // gdmAdmin_voir
+        if (0 === strpos($pathinfo, '/voir') && preg_match('#^/voir/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'gdmAdmin_voir')), array (  '_controller' => 'gdm\\AdminBundle\\Controller\\AdminController::voirAction',));
+        }
+
+        // gdmAdmin_ajouterMaison
+        if ($pathinfo === '/ajouter_maison') {
+            return array (  '_controller' => 'gdm\\AdminBundle\\Controller\\AdminController::ajouterMaisonAction',  '_route' => 'gdmAdmin_ajouterMaison',);
+        }
+
+        // gdmAdmin_modifier
+        if (0 === strpos($pathinfo, '/modifier') && preg_match('#^/modifier/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'gdmAdmin_modifier')), array (  '_controller' => 'gdm\\AdminBundle\\Controller\\AdminController::modifierAction',));
+        }
+
+        // gdmAdmin_supprimer
+        if (0 === strpos($pathinfo, '/supprimer') && preg_match('#^/supprimer/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'gdmAdmin_supprimer')), array (  '_controller' => 'gdm\\AdminBundle\\Controller\\AdminController::supprimerAction',));
         }
 
         if (0 === strpos($pathinfo, '/hello')) {

@@ -31,10 +31,17 @@ class Maison
     /**
      * @var integer
      *
-     * @ORM\Column(name="nbrTrano", type="integer")
+     * @ORM\Column(name="nbrMaison", type="integer")
      */
-    private $nbrTrano;
+    private $nbrMaison;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->dispo = true;
+    }
 
     /**
      * Get id
@@ -50,7 +57,7 @@ class Maison
      * Set dispo
      *
      * @param boolean $dispo
-     * @return Trano
+     * @return Maison
      */
     public function setDispo($dispo)
     {
@@ -70,25 +77,25 @@ class Maison
     }
 
     /**
-     * Set nbrTrano
+     * Set nbrMaison
      *
-     * @param integer $nbrTrano
-     * @return Trano
+     * @param integer $nbrMaison
+     * @return Maison
      */
-    public function setNbrTrano($nbrTrano)
+    public function setNbrMaison($nbrMaison)
     {
-        $this->nbrTrano = $nbrTrano;
+        $this->nbrMaison = $nbrMaison;
     
         return $this;
     }
 
     /**
-     * Get nbrTrano
+     * Get nbrMaison
      *
      * @return integer 
      */
-    public function getNbrTrano()
+    public function getNbrMaison()
     {
-        return $this->nbrTrano;
+        return $this->nbrMaison;
     }
 }

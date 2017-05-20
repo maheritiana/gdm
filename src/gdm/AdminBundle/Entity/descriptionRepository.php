@@ -3,6 +3,7 @@
 namespace gdm\AdminBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * descriptionRepository
@@ -12,4 +13,23 @@ use Doctrine\ORM\EntityRepository;
  */
 class descriptionRepository extends EntityRepository
 {
+    public function getAnimal($nombreParPage, $page)
+    {
+        if ($page < 1) {
+            throw new \InvalidArgumentException('L\'argument $page ne peut être inférieur à 1 (valeur : "'.$page.'").');
+        }
+        $query = $this->createQueryBuilder('a')
+            ->leftJoin('a.image', 'i')
+            ->addSelect('i')
+            ->getQuery();
+        $query->setFirstResult(($page-1) * $nombreParPage)->setMaxResults($nombreParPage);
+        return new Paginator($query);
+    }
+    public function getSelectList()
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->where('a.genre = "male'); // On filtre sur l'attribut publication
+        // Et on retourne simplement le QueryBuilder, et non la Query,attention
+        return $qb;
+    }
 }

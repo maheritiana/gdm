@@ -42,6 +42,11 @@ class boutique
      */
     private $prix;
 
+    /**
+     * @ORM\OneToOne(targetEntity="gdm\AdminBundle\Entity\image",cascade={"persist", "remove"})
+     */
+    private $image;
+
 
     /**
      * Get id
@@ -120,5 +125,28 @@ class boutique
     public function getPrix()
     {
         return $this->prix;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \gdm\AdminBundle\Entity\image $image
+     * @return boutique
+     */
+    public function setImage(\gdm\AdminBundle\Entity\image $image = null)
+    {
+        $this->image = $image;
+    
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \gdm\AdminBundle\Entity\image 
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }
