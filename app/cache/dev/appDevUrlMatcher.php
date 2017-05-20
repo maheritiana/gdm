@@ -133,23 +133,25 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/h')) {
-            // gdmAnimal_accueil
-            if ($pathinfo === '/home') {
-                return array (  '_controller' => 'gdm\\AdminBundle\\Controller\\AdminController::indexAction',  'page' => 1,  '_route' => 'gdmAnimal_accueil',);
+        // gdmAnimal_accueil
+        if ($pathinfo === '/home') {
+            return array (  '_controller' => 'gdm\\AdminBundle\\Controller\\AdminController::indexAction',  'page' => 1,  '_route' => 'gdmAnimal_accueil',);
+        }
+
+        // gdmAnimal_Ajouter
+        if ($pathinfo === '/Ajouter') {
+            return array (  '_controller' => 'gdm\\AdminBundle\\Controller\\AdminController::ajouterAction',  '_route' => 'gdmAnimal_Ajouter',);
+        }
+
+        if (0 === strpos($pathinfo, '/hello')) {
+            // gdm_reservation_homepage
+            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'gdm_reservation_homepage')), array (  '_controller' => 'gdm\\ReservationBundle\\Controller\\DefaultController::indexAction',));
             }
 
-            if (0 === strpos($pathinfo, '/hello')) {
-                // gdm_reservation_homepage
-                if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'gdm_reservation_homepage')), array (  '_controller' => 'gdm\\ReservationBundle\\Controller\\DefaultController::indexAction',));
-                }
-
-                // gdm_user_homepage
-                if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'gdm_user_homepage')), array (  '_controller' => 'gdm\\UserBundle\\Controller\\DefaultController::indexAction',));
-                }
-
+            // gdm_user_homepage
+            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'gdm_user_homepage')), array (  '_controller' => 'gdm\\UserBundle\\Controller\\DefaultController::indexAction',));
             }
 
         }

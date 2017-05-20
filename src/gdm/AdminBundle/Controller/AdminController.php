@@ -10,4 +10,7 @@ class AdminController extends Controller
     {
         return $this->render('gdmAdminBundle:reservation:index.html.twig');
     }
+    public function ajouterAction()
+    {
+    }
 }

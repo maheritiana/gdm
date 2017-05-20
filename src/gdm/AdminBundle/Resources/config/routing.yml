@@ -3,3 +3,7 @@ gdmAnimal_accueil:
     defaults: { _controller: gdmAdminBundle:Admin:index, page: 1}
     requirements:
         page: \d*
+
+gdmAnimal_Ajouter:
+    path: /Ajouter
+    defaults: { _controller: gdmAdminBundle:Admin:ajouter}

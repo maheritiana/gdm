@@ -128,27 +128,4 @@ class description
     {
         return $this->categorie;
     }
-
-    /**
-     * Set image
-     *
-     * @param \gdm\AdminBundle\Entity\image $image
-     * @return description
-     */
-    public function setImage(\gdm\AdminBundle\Entity\image $image = null)
-    {
-        $this->image = $image;
-    
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return \gdm\AdminBundle\Entity\image 
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
 }
